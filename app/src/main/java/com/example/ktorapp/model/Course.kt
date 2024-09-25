@@ -2,13 +2,6 @@ package com.example.ktorapp.model
 
 import com.google.gson.annotations.SerializedName
 
-//Représente le modèle de données pour les cours, qui correspond au modèle envoyé
-// par le serveur Ktor.
-//Utilise l'annotation @SerializedName pour mapper les champs JSON renvoyés par
-// l'API à leurs équivalents dans la classe Kotlin. Cela permet de gérer la
-// désérialisation correcte des données JSON en objets Kotlin.
-//Chaque instance de cette classe stocke les informations sur un cours
-// (ID, titre, niveau, etc.).
 
 data class Course(
     @SerializedName("id") val id: Int,
@@ -16,3 +9,21 @@ data class Course(
     @SerializedName("lvl") val lvl: Int,
     @SerializedName("isActive") val isActive: Boolean
 )
+
+//The Course class is a Kotlin data class that represents a data model for a course.
+
+//Here's what it does:
+//Attributes :
+//-id: a unique identifier for the course (of type Int).
+//-title: the course title (of type String).
+//-lvl: the course level (of type Int).
+//-isActive: a Boolean indicating whether the course is active or not.
+
+//Serialization with Gson :
+//Each attribute is annotated with @SerializedName, which indicates the exact name
+//these properties will have in the JSON during network exchanges. For example, the
+//title attribute will be linked to the key “title” in JSON.
+
+//This class is used to model course data retrieved from or sent to the API.
+//The @SerializedName annotations facilitate conversion between the Kotlin object
+//and the JSON format for network calls.
